@@ -8,15 +8,11 @@ class Zanr{
         $this->NazivZanra = $NazivZanra;
     }
    
-   
-   
     public function getIdByName($conn){
       $query="SELECT  ZanrId from zanrknjige where NazivZanra='Bojanka'";
       return   $conn->query($query);
       
   }
-    
-
     public function save($conn){
         if($conn->query("INSERT INTO zanrknjige(NazivZanra) VALUES ('$this->nazivZanra')")){
           return true;
