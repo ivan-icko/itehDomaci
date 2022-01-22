@@ -17,6 +17,8 @@ include 'konekcija.php';
 </head>
 
 <body>
+   
+
     <div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -32,6 +34,7 @@ include 'konekcija.php';
                     <li><a id="btn-Pocetna" href="index.php" type="button" class="btn btn-success btn-block">Početna</a></li>
                     <li><a id="btn-Dodaj" type="button" class="btn btn-success btn-block"  data-toggle="modal" data-target="#my">Dodaj novu knjigu</a></li>
                     <li><a id="btn-Upravljaj" href="UpravljajKnjigama.php" type="button" class="btn btn-success btn-block">Upravljaj knjigama</a></li>
+                    
                 </ul>
             </div>
         </div>
@@ -116,6 +119,10 @@ include 'konekcija.php';
 
 
     <div class="container pt">
+    <div id="searchDiv">
+            <input type="text" name="search" id="searchBar"
+            oninput="pretraga0()" placeholder="pretrazi knjigu" class="form-control">
+             </div>
         <label for="pretraga">Pretraži knjige za odabrani žanr</label>
         <select id="pretraga" onchange="pretraga()" class="form-control">
             <?php
@@ -158,6 +165,19 @@ include 'konekcija.php';
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        function pretraga0(){
+            $.ajax({
+                url: "PretragaKnjigaPoNazivu.php",
+                data: {
+                    NazivKnjige: $("#searchBar").val()
+                },
+                success: function(html) {
+                    $("#podaciPretraga").html(html);
+                }
+            })
+        }
+    </script>
     <script>
         function pretraga() {
             $.ajax({

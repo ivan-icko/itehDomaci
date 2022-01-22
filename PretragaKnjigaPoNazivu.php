@@ -2,18 +2,18 @@
     include 'konekcija.php';
     include 'KnjigeClass.php';
 
-    if(isset($_GET['ZanrId']))
+    if(isset($_GET['NazivKnjige']))
     {
-        $id = mysqli_real_escape_string($conn,$_GET['ZanrId']);
+        $NazivKnjige = mysqli_real_escape_string($conn,$_GET['NazivKnjige']);
         $niz = [];
-        $rez = $conn->query("select * from knjiga where Zanr=$id");
+        $rez = $conn->query("select * from knjiga where NazivKnjige='$NazivKnjige'");
        // $rez = $conn->query("select * from knjiga where Zanr=$id") or die($conn->error);
         while($red=$rez->fetch_assoc()):
-        $knjige = new Knjiga($red['IdKnjige'],$red['NazivKnjige'],$red['Autor'],$id);
+        $knjige = new Knjiga($red['IdKnjige'],$red['NazivKnjige'],$red['Autor'],$red['Zanr']);
         array_push($niz,$knjige);
         endwhile;
     ?>
-    <table class="table table-hover" >
+    <table class="table table-hover">
     <thead>
         <tr>
             <th scope="col">Naziv knjige</th>
@@ -29,7 +29,7 @@
         foreach($niz as $vrednost):
             ?>
                 <tr>
-                <td> <?php echo $vrednost->NazivKnjige  ?></td>
+                <td> <?php echo $vrednost->NazivKnjige?></td>
               <td><?php echo $vrednost->Autor ?>  </td>
                 </tr>
             <?php

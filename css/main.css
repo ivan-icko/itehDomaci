@@ -11,6 +11,18 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+#searchBar{
+    width: 100%;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid wheat;
+    padding: 50px 10 px;
+    font-size: 12px;
+}
+#search{
+    position: relative;
+}
+
 #divIdZanra{
     display: none;
 }

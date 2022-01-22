@@ -59,6 +59,7 @@ $('.btn-danger').click(function () {
 
 
 
+
 $('#btn-pretraga').click(function () {
 
   var para = document.querySelector('#myInput');

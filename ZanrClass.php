@@ -2,7 +2,6 @@
 class Zanr{
   public $ZanrId;
   public $NazivZanra;
-
   function __construct($ZanrId,$NazivZanra) {
         $this->ZanrId = $ZanrId;
         $this->NazivZanra = $NazivZanra;
