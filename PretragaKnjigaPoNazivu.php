@@ -6,7 +6,7 @@
     {
         $NazivKnjige = mysqli_real_escape_string($conn,$_GET['NazivKnjige']);
         $niz = [];
-        $rez = $conn->query("select * from knjiga where NazivKnjige='$NazivKnjige'");
+        $rez = $conn->query("select * from knjiga where NazivKnjige like'$NazivKnjige%'");
        // $rez = $conn->query("select * from knjiga where Zanr=$id") or die($conn->error);
         while($red=$rez->fetch_assoc()):
         $knjige = new Knjiga($red['IdKnjige'],$red['NazivKnjige'],$red['Autor'],$red['Zanr']);
