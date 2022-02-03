@@ -105,19 +105,6 @@ include 'konekcija.php';
 
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="container pt">
     <div id="searchDiv">
             <input type="text" name="search" id="searchBar"

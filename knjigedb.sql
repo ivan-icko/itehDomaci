@@ -23,26 +23,6 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `igrica`
---
-
-CREATE TABLE `igrica` (
-  `idKnjige` int(11) NOT NULL,
-  `nazivKnjige` varchar(50) NOT NULL,
-  `verzijaIgrice` varchar(50) NOT NULL,
-  `zanrID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `igrica`
---
-
-INSERT INTO `igrica` (`idKnjige`, `nazivKnjige`, `verzijaIgrice`, `zanrID`) VALUES
-(6, 'PUBG', '12', 3),
-(8, 'DOTA', '2', 1),
-(10, 'Fortnite', '2022', 3);
-
 -- --------------------------------------------------------
 
 --
@@ -117,10 +97,6 @@ INSERT INTO `zanrknjige` (`ZanrId`, `NazivZanra`) VALUES
 --
 
 --
--- Indexes for table `igrica`
---
-ALTER TABLE `igrica`
-  ADD PRIMARY KEY (`idKnjige`);
 
 --
 -- Indexes for table `knjiga`
@@ -143,12 +119,6 @@ ALTER TABLE `zanrknjige`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `igrica`
---
-ALTER TABLE `igrica`
-  MODIFY `idKnjige` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `zanr`
