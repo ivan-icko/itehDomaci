@@ -123,13 +123,82 @@ if (isset($_POST['zanr'])) {
             <td data-target="autor"><?php echo $vrednost->Autor ?> </td>
             <td data-target="zanr"><?php echo $vrednost->Zanr->NazivZanra ?></td>
             <td><button id="btnObrisi" name="btnObrisi" class="btn btn-danger" data-id1="<?php echo $vrednost->IdKnjige ?>">Obriši</a></td>
-            <td><button class="btn btn-info" data-toggle="modal" data-target="#my" data-id2="<?php echo $vrednost->IdKnjige ?>">Izmeni</a></td>
+            <td><button class="btn btn-info" data-toggle="modal" data-target="#my1" data-id2="<?php echo $vrednost->IdKnjige ?>">Izmeni</a></td>
           </tr>
         <?php
         }
         ?>
       </tbody>
     </table>
+
+  </div>
+
+  <div class="modal fade" id="my1" role="dialog">
+    <div class="modal-dialog">
+      <!-- zakazi modal -->
+      <!--Sadrzaj modala-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="container prijava-form">
+            <form action="#" method="post" id="izmeniForma">
+
+
+              <h3 style="color: black; text-align: center">Izmeni podatke o knjizi</h3>
+              <div class="row">
+                <div class="col-md-11 ">
+
+                  <div style="display: none;" class="form-group">
+                    <label for="">IdKnjige</label>
+                    <input  id="idKnjige" type="text" style="border: 1px solid black" name="idKnjige" class="form-control" />
+                  </div>
+
+                  <div class="form-group" style="display: none;">
+                    <label for="">IdZanraaaa</label>
+                    <input id="idZanra"  type="text" style="border: 1px solid black" name="idZanra" class="form-control" />
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="">Naziv knjige</label>
+                    <input id="naziv" type="text" style="border: 1px solid black" name="naziv" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="">Autor</label>
+                    <input id="autor" type="text" style="border: 1px solid black" name="autor" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                    <label for="">Zanr</label>
+
+                    <select title="zanrr" id="zanr" name="zanr" class="form-control">
+                      <?php
+                      $rez = $conn->query("SELECT * from zanrknjige");
+                      while ($red = $rez->fetch_assoc()) {
+                      ?>
+                        <option value="<?php echo $red['ZanrId'] ?>"> <?php echo $red['NazivZanra'] ?></option>
+                      <?php  }
+                      ?>
+                    </select>
+                  </div>
+                  <div class="col-md-12" style="display: none;">
+                    <div class="form-group">
+                      <label for="" >Datum neki</label>
+                      <input type="date" style="border: 1px solid black" name="datum" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button id="btnIzmeni" type="submit" class="btn btn-success btn-block" tyle="background-color: orange; border: 1px solid black;">Izmeni</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
   </div>
 
@@ -161,10 +230,6 @@ if (isset($_POST['zanr'])) {
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-
-    
-
-
 
 </body>
 
