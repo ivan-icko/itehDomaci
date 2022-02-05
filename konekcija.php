@@ -3,7 +3,6 @@
   ini_set("display_errors", true);
   ini_set("log_errors", true);
 
-
   $conn = new MySqli('localhost', 'root','','knjigedb');
   $conn->set_charset("utf8");
  ?>

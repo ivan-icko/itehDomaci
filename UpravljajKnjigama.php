@@ -135,8 +135,6 @@ if (isset($_POST['zanr'])) {
 
   <div class="modal fade" id="my1" role="dialog">
     <div class="modal-dialog">
-      <!-- zakazi modal -->
-      <!--Sadrzaj modala-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
