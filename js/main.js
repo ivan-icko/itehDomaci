@@ -62,9 +62,9 @@ $('.btn-danger').click(function () {
 
 $('#btn-pretraga').click(function () {
 
-  var para = document.querySelector('#myInput');
+  var para = document.querySelector('#myInput');//vraca prvi element koji se poklapa sa uslovom(ili null)
   console.log(para);
-  var style = window.getComputedStyle(para);
+  var style = window.getComputedStyle(para);//vraca objekat koji ima taj css parametar
   console.log(style);
   if (!(style.display === 'inline-block') || ($('#myInput').css("visibility") == "hidden")) {
     console.log('block');
@@ -92,7 +92,6 @@ $('#btnIzmeni').submit(function () {
 
 //promena vrednosti cba
 $("#zanr").change(function(){
-
   console.log("u fji changeeeeeeeeeeeeeeeeeee;");
   var idZanra =  $('#zanr').val();
   $('#idZanra').val(idZanra);
@@ -104,8 +103,6 @@ $("#zanr").change(function(){
 $('.btn-info').click(function () {
   console.log("u oasdfosodfosadofo");
   const trenutni = $(this).attr('data-id2');
-
-
   console.log(trenutni);
   var naziv = $(this).closest('tr').children('td[data-target=naziv]').text();
   console.log(naziv);
@@ -113,15 +110,11 @@ $('.btn-info').click(function () {
   var zanr = $(this).closest('tr').children('td[data-target=zanr]').text();
   var idZanra =  $('#zanr').val();
   console.log(zanr);
-
-
   $('#idKnjige').val(trenutni);
   $('#naziv').val(naziv);
   $('#autor').val(autor);
   $('#test').val(zanr);
   $('#idZanra').val(idZanra);
-
-
   switch (zanr) {
     case "Autobiografija":
       $('#zanr').val("1");
